@@ -4,7 +4,7 @@ import { SkeletonText } from "../ChakraComponents/ui/skeleton";
 
 const GameCardSkeleton = () => {
   return (
-    <CardRoot width="300px" borderRadius={10} overflow="hidden">
+    <CardRoot>
       <Skeleton height="200px" />
       <CardBody>
         <SkeletonText />
