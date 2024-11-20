@@ -4,12 +4,12 @@ import { SkeletonText } from "../ChakraComponents/ui/skeleton";
 
 const GameCardSkeleton = () => {
   return (
-    <CardRoot>
+    <Card.Root>
       <Skeleton height="200px" />
-      <CardBody>
+      <Card.Body>
         <SkeletonText />
-      </CardBody>
-    </CardRoot>
+      </Card.Body>
+    </Card.Root>
   );
 };
 
