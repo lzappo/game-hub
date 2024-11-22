@@ -4,6 +4,7 @@ import {
   MenuItem,
   MenuRoot,
   MenuTrigger,
+  Portal,
 } from "@chakra-ui/react";
 import React from "react";
 import { BsChevronDown } from "react-icons/bs";
@@ -26,7 +27,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
           {selectedPlatform?.name || "Platforms"} <BsChevronDown />
         </Button>
       </MenuTrigger>
-      <MenuContent>
+      <MenuContent style={{ position: "absolute" }}>
         {data.map((platform) => (
           <MenuItem
             onClick={() => onSelectPlatform(platform)}
