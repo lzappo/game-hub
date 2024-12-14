@@ -31,7 +31,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
         placement="bottom-start"
         // style={{ position: "absolute", zIndex: 1000, overflow: "auto" }}
       >
-        {data.map((platform) => (
+        {data?.results.map((platform) => (
           <MenuItem
             onClick={() => onSelectPlatform(platform)}
             value={platform.id}
