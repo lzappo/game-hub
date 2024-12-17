@@ -8,8 +8,9 @@ import {
 } from "react-icons/fa";
 import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo } from "react-icons/si";
+import { SiSega } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
-import { HStack, Icon, Text, VStack } from "@chakra-ui/react";
+import { Box, HStack, Icon, Text, VStack } from "@chakra-ui/react";
 import { Platform } from "../hooks/usePlatforms";
 import { IconType } from "react-icons";
 
@@ -28,16 +29,21 @@ const PlatformIconList = ({ platforms }: Props) => {
     ios: MdPhoneIphone,
     web: BsGlobe,
     android: FaAndroid,
+    sega: SiSega,
   };
 
   return (
-    <HStack>
+    <HStack flexWrap="wrap">
       {platforms.map((platform) => {
-        const PlatformIcon = iconMap[platform.slug];
+        const PlatformIcon = iconMap[platform.slug] || BsGlobe;
+
         return (
-          <Icon key={platform.id} fontSize="md" color="gray.500">
-            <PlatformIcon />
-          </Icon>
+          <Box
+            as={PlatformIcon}
+            key={platform.id}
+            fontSize="md"
+            color="gray.500"
+          />
         );
       })}
     </HStack>
