@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   MenuContent,
   MenuItem,
@@ -25,24 +26,36 @@ const SortSelector = () => {
   );
 
   return (
-    <MenuRoot>
-      <MenuTrigger asChild>
-        <Button variant="outline" size="sm">
-          Order by: {currentSortOrder?.label || "Relevance"} <BsChevronDown />
-        </Button>
-      </MenuTrigger>
-      <MenuContent style={{ position: "absolute" }}>
-        {sortOrders.map((order) => (
-          <MenuItem
-            onClick={() => setSortOrder(order.value)}
-            key={order.value}
-            value={order.value}
-          >
-            {order.label}
-          </MenuItem>
-        ))}
-      </MenuContent>
-    </MenuRoot>
+    <Box position="relative" display="inline-block">
+      <MenuRoot>
+        <MenuTrigger asChild>
+          <Button variant="outline" size="sm">
+            Order by: {currentSortOrder?.label || "Relevance"}{" "}
+            <BsChevronDown style={{ marginLeft: "0.5rem" }} />
+          </Button>
+        </MenuTrigger>
+        <MenuContent
+          side="bottom"
+          align="start"
+          style={{
+            position: "absolute",
+            top: "100%",
+            marginTop: "0.5rem",
+            zIndex: 1000,
+          }}
+        >
+          {sortOrders.map((order) => (
+            <MenuItem
+              onClick={() => setSortOrder(order.value)}
+              key={order.value}
+              value={order.value}
+            >
+              {order.label}
+            </MenuItem>
+          ))}
+        </MenuContent>
+      </MenuRoot>
+    </Box>
   );
 };
 

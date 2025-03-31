@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   MenuContent,
   MenuItem,
@@ -18,27 +19,36 @@ const PlatformSelector = () => {
 
   if (error) return null;
   return (
-    <MenuRoot>
-      <MenuTrigger asChild>
-        <Button variant="outline" size="sm">
-          {selectedPlatform?.name || "Platforms"} <BsChevronDown />
-        </Button>
-      </MenuTrigger>
-      <MenuContent
-        placement="bottom-start"
-        // style={{ position: "absolute", zIndex: 1000, overflow: "auto" }}
-      >
-        {data?.results.map((platform) => (
-          <MenuItem
-            onClick={() => setSelectedPlatformId(platform.id)}
-            value={platform.id}
-            key={platform.id}
-          >
-            {platform.name}
-          </MenuItem>
-        ))}
-      </MenuContent>
-    </MenuRoot>
+    <Box position="relative" display="inline-block">
+      <MenuRoot>
+        <MenuTrigger asChild>
+          <Button variant="outline" size="sm">
+            {selectedPlatform?.name || "Platforms"}{" "}
+            <BsChevronDown style={{ marginLeft: "0.5rem" }} />
+          </Button>
+        </MenuTrigger>
+        <MenuContent
+          side="bottom"
+          align="start"
+          style={{
+            position: "absolute",
+            top: "100%",
+            marginTop: "0.5rem",
+            zIndex: 1000,
+          }}
+        >
+          {data?.results.map((platform) => (
+            <MenuItem
+              onClick={() => setSelectedPlatformId(platform.id)}
+              value={platform.id}
+              key={platform.id}
+            >
+              {platform.name}
+            </MenuItem>
+          ))}
+        </MenuContent>
+      </MenuRoot>
+    </Box>
   );
 };
 
