@@ -13,6 +13,7 @@ const GameCardContainer = ({ children }: Props) => {
         transition: "transform .15s ease-in",
       }}
       borderRadius={10}
+      overflow="hidden"
     >
       {children}
     </Box>
